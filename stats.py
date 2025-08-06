@@ -26,3 +26,12 @@ def char_count(book_content):
             if i == j:
                 alpunct[i] += 1
     return alpunct
+
+#Creates a list of dictionaries and sort it based on the number of chars
+def char_sort(dict_chars):
+    dict_list = []
+    for k, v in dict_chars.items():
+        dict_list.append({"char": k, "num": v})
+    
+    dict_list.sort(reverse=True, key=lambda items: items["num"])
+    return dict_list
