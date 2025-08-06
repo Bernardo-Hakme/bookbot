@@ -3,19 +3,21 @@ from stats import get_book_text, word_count, char_count, char_sort
 import sys
 
 def main():
-    frank_path = "/home/bernardo_hakme/workspace/GitHub/bookbot/books/frankenstein.txt"
-        
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path/to/file>")
+        sys.exit(1)   
+
     print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {frank_path}")
+    print(f"Analyzing book found at {sys.argv[1]}")
 
     print("------------ Word Count ------------")
-    frankenstein = get_book_text(frank_path)
-    total_words = word_count(frankenstein)
+    book = get_book_text(sys.argv[1])
+    total_words = word_count(book)
 
     print(f"{total_words} words found in the document")
     
     print("------------ Char Count ------------")
-    total_chars = char_count(frankenstein)
+    total_chars = char_count(book)
     
     sorted_total_chars = char_sort(total_chars)
     for i in sorted_total_chars:
